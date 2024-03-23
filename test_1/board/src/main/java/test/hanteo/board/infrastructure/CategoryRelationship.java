@@ -9,6 +9,7 @@ import jakarta.persistence.ManyToOne;
 import java.io.Serializable;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import test.hanteo.board.request.CategoryCreateRequest;
 
 @Entity
 @Getter
@@ -24,4 +25,9 @@ public class CategoryRelationship implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "child_id")
     private Category child;
+
+    public CategoryRelationship(CategoryCreateRequest categoryCreateRequest, Category category) {
+        parentId = categoryCreateRequest.getParentCategoryId();
+        child = category;
+    }
 }
