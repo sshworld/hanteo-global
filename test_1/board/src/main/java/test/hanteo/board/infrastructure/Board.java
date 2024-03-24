@@ -36,8 +36,4 @@ public class Board {
     public Board(Category category) {
         this.category = category;
     }
-
-    public Long getCategoryId() {
-        return category.getId();
-    }
 }
